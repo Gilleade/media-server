@@ -20,3 +20,17 @@ Nesta etapa, o objetivo é confirmar que:
 
 ```text
 8096
+```
+
+## Status da etapa
+
+- [x] Container iniciado
+- [x] Interface web acessível
+- [x] Biblioteca criada
+- [x] Vídeo de teste reconhecido
+- [x] Reprodução local validada
+- [x] Acesso pela rede local validado
+
+## Resultado
+
+Etapa validada em ambiente local/intranet. O Jellyfin está funcional via Docker e acessível pelos dispositivos da rede interna.
