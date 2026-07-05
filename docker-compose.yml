@@ -25,9 +25,29 @@ services:
       - "${QBITTORRENT_PORT:-6881}:6881/udp"
 
     environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
       - TZ=${TZ:-America/Sao_Paulo}
       - WEBUI_PORT=8080
 
     volumes:
       - ./config/qbittorrent:/config
+      - ./downloads:/downloads
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    restart: unless-stopped
+
+    ports:
+      - "${RADARR_PORT:-7878}:7878"
+
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-America/Sao_Paulo}
+
+    volumes:
+      - ./config/radarr:/config
+      - ./media/filmes:/movies
       - ./downloads:/downloads
