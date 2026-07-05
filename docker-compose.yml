@@ -51,3 +51,19 @@ services:
       - ./config/radarr:/config
       - ./media/filmes:/movies
       - ./downloads:/downloads
+  
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    restart: unless-stopped
+
+    ports:
+      - "${PROWLARR_PORT:-9696}:9696"
+
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-America/Sao_Paulo}
+
+    volumes:
+      - ./config/prowlarr:/config
