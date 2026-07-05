@@ -67,3 +67,21 @@ services:
 
     volumes:
       - ./config/prowlarr:/config
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    restart: unless-stopped
+
+    ports:
+      - "${SONARR_PORT:-8989}:8989"
+
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-America/Sao_Paulo}
+
+    volumes:
+      - ./config/sonarr:/config
+      - ./media/series:/tv
+      - ./downloads:/downloads
