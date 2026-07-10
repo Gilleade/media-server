@@ -103,3 +103,18 @@ services:
       - ./config/bazarr:/config
       - ./media/filmes:/movies
       - ./media/series:/tv
+
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    restart: unless-stopped
+
+    ports:
+      - "${JELLYSEERR_PORT:-5055}:5055"
+
+    environment:
+      - TZ=${TZ:-America/Sao_Paulo}
+      - PORT=5055
+
+    volumes:
+      - ./config/jellyseerr:/app/config

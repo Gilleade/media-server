@@ -31,3 +31,8 @@ media-server/
 ├── docker-compose.yml
 ├── .env
 └── docs/
+```
+
+# Download de bibliotecas para o QBitTorrent
+
+https://github.com/qbittorrent/search-plugins/wiki/unofficial-search-plugins
